@@ -26,6 +26,10 @@
             return;
         }
 
+        if (a <= 0 || b <= 0) {
+            document.getElementById('result').textContent = '  неправильный катет'
+        }
+
         const hyp = Math.sqrt(a * a + b * b);
         document.getElementById('result').textContent = `Гипотенуза равна ${hyp.toFixed(2)}`;
     }
