@@ -1,40 +1,28 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Вычисление гипотенузы</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        input { margin: 5px 0; padding: 5px; width: 100%; max-width: 200px; }
-        button { padding: 5px 10px; }
-        #result { margin-top: 15px; font-weight: bold; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор гипотенузы</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Расчет гипотенузы</h1>
-    <label>Катет 1:</label><br>
-    <input type="number" id="leg1" placeholder="Введите длину катета"><br>
-    <label>Катет 2:</label><br>
-    <input type="number" id="leg2" placeholder="Введите длину катета"><br>
-    <button onclick="computeHypotenuse()">Вычислить гипотенузу</button>
-    <p id="result"></p><script>
-    function computeHypotenuse() {
-        const a = parseFloat(document.getElementById('leg1').value);
-        const b = parseFloat(document.getElementById('leg2').value);
+    <div class="container">
+        <h1>Калькулятор гипотенузы</h1>
+        <form id="hypotenuseForm">
+            <label for="cathetusA">Катет A:</label>
+            <input type="number" id="cathetusA" name="cathetusA" required min="0" step="any">
 
-        if (isNaN(a) || isNaN(b)) {
-            document.getElementById('result').textContent = 'Пожалуйста, введите оба катета.';
-            return;
-        }
+            <label for="cathetusB">Катет B:</label>
+            <input type="number" id="cathetusB" name="cathetusB" required min="0" step="any">
 
-        if (a <= 0 || b <= 0) {
-            document.getElementById('result').textContent = '  неправильный катет';
-            return;
-        }
+            <button type="submit">Рассчитать</button>
+        </form>
 
-        const hyp = Math.sqrt(a * a + b * b);
-        document.getElementById('result').textContent = `Гипотенуза равна ${hyp.toFixed(2)}`;
-    }
-</script>
+        <div id="result"></div>
+        <div id="error"></div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
